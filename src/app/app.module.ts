@@ -13,6 +13,7 @@ import { LastFewTransactionsComponent } from './last-few-transactions/last-few-t
 import { TopThreeProductsComponent } from './top-three-products/top-three-products.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartModule } from 'angular-highcharts';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { ChartModule } from 'angular-highcharts';
     AppRoutingModule,
     FontAwesomeModule,
     ChartModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

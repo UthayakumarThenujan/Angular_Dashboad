@@ -1,11 +1,28 @@
 import { Component } from '@angular/core';
 import { Chart } from 'angular-highcharts';
+import { OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-top-three-products',
   templateUrl: './top-three-products.component.html',
   styleUrl: './top-three-products.component.scss'
 })
-export class TopThreeProductsComponent {
+export class TopThreeProductsComponent implements OnInit{
+
+  public getJsonValue:any;
+  constructor(private http:HttpClient){}
+
+  ngOnInit(): void {
+      this.getMethod();
+  }
+
+  public getMethod(){
+    this.http.get("http://127.0.0.1:8001/CallAnalysis/call-sentiments").subscribe((data)=> {
+      console.log(data);
+      this.getJsonValue =data;
+    });
+  }
+
   chart = new Chart({
     chart: {
       type: 'bar',
